@@ -18,11 +18,11 @@ app.get('/secret', (req, res)=>{
 app.post('/secret', (req, res)=>{
   MongoClient.connect(URI, {useNewUrlParser: true}, (err, client)=>{
     if(err){
-      console,log(err);
+      console.log(err);
     }
     else{
       const db = client.db(DB_NAME);
-      cont collection = db.collection('names');
+      const collection = db.collection('names');
       const entry = {
         name: req.body.name.toLowerCase(),
         card: req.body.number + '_of_' + req.body.suit
